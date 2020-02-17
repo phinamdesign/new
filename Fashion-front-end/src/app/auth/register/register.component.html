@@ -1,0 +1,110 @@
+<article class="card-body mx-auto" style="max-width: 400px;">
+<!--  <h4 class="card-title mt-3 text-center text-info">Create Account</h4>-->
+  <p class="text-center text-info">Get started with your free account</p>
+  <form [formGroup]="registerForm">
+    <label class="col text-info">Full Name
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="name" formControlName="name" class="form-control" placeholder="Full name" type="text">
+        <div class="alert alert-warning" role="alert"
+             *ngIf="registerForm.get('name').invalid &&registerForm.get('name').touched">
+          Name invalid(must longer 2 and smaller 50 character)
+        </div>
+      </div> <!-- form-group// -->
+    </label>
+    <label class="col text-info">User Name
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="username" formControlName="username" class="form-control" placeholder="Username" type="text">
+        <div class="alert alert-warning" role="alert"
+             *ngIf="registerForm.get('username').invalid &&registerForm.get('username').touched">
+          UserName invalid(must longer 2 and smaller 50 character)
+        </div>
+      </div> <!-- form-group// -->
+    </label>
+    <label class="col text-info">Email
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+      </div>
+
+      <input name="email text-info" formControlName="email" class="form-control" placeholder="Email" type="email">
+      <div class="alert alert-warning" role="alert"
+           *ngIf="registerForm.get('email').invalid &&registerForm.get('email').touched">
+        Email invalid(must smaller 50 character)
+      </div>
+    </div> <!-- form-group// -->
+  </label>
+
+    <label class="col text-info">Phone number
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-phone-volume"></i></span>
+        </div>
+
+        <input name="email text-info" formControlName="phone" class="form-control" placeholder="phone number" type="text">
+        <div class="alert alert-warning" role="alert" *ngIf="registerForm.get('phone').invalid && registerForm.get('phone').touched">
+          <span *ngIf="registerForm.get('phone').hasError('required')">Phone is required please enter again!</span>
+          <span *ngIf="registerForm.get('phone').hasError('pattern')">Phone must start with +84 or 0 followed by 9 or 10 digits.</span>
+        </div>
+      </div> <!-- form-group// -->
+    </label>
+
+    <label class="col text-info">Address
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+        </div>
+
+        <input name="email text-info" formControlName="address" class="form-control" placeholder="Address" type="text">
+        <div class="alert alert-warning" role="alert"
+             *ngIf="registerForm.get('address').invalid &&registerForm.get('address').touched">
+          address invalid(must smaller 50 character)
+        </div>
+      </div> <!-- form-group// -->
+    </label>
+
+    <label class="col text-info"> Password
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+
+        <input class="form-control" placeholder="Password" type="password"
+               name="password" formControlName="password" #password>
+        <div class="alert alert-warning" role="alert"
+             *ngIf="registerForm.get('password').invalid &&registerForm.get('password').touched">
+          Password invalid(must longer 6 and smaller 100 character)
+        </div>
+      </div> <!-- form-group// -->
+    </label>
+
+    <label class="col text-info"> Confirm Password
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+
+        <input class="form-control" placeholder="Confirm Password" type="password"
+               name="confirmPassword" formControlName="confirmPassword" #ch>
+        <div class="alert alert-warning" role="alert" *ngIf="ch.value !='' && ch.value!= password.value || registerForm.get('confirmPassword').invalid && registerForm.get('confirmPassword').touched">
+          The password is not the same, please try it one more time!
+        </div>
+      </div> <!-- form-group// -->
+    </label>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-info btn-block" (click)="ch.value == password.value && signUp()"> Create Account</button>
+      <div *ngIf="isSignUpFailed" class="alert alert-warning">
+        Signup failed!<br/>{{errorMessage}}
+      </div>
+    </div> <!-- form-group// -->
+    <p class="text-center">Have an account? <a [routerLink]="'/login'">Log In</a></p>
+  </form>
+</article>
+
+

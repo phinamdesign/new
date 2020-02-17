@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="center">
+    <form [formGroup]="productForm" class="form-inline ml-auto">
+      <input type="text" [(ngModel)]="nameProduct" (keydown)="searchProductByName()" class="form-control mr-sm-2" formControlName="name" name="name" placeholder="Search">
+      <button (click)="searchProductByName()" type="submit" class="btn btn-dark">Search</button>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <div class="panel panel-primary" align="center">
+    <div class="panel-heading mb-3">
+      <h2>List Product</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped text-center" border="1px">
+        <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Balance</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Supplier</th>
+          <th>Category</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of listProduct">
+          <td>{{product.name}}</td>
+          <td><img [src]="product.pictures[0].src" alt="Card image cap" height="100px" width="100px"></td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.price| currency: 'VND'}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.supplier.supplierName}}</td>
+          <td>{{product.category.categoryName}}</td>
+          <td><a [routerLink]="'/update-product/'+ product.id"><button class="btn btn-success">Edit</button></a></td>
+          <td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

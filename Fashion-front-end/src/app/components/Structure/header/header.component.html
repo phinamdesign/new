@@ -1,0 +1,44 @@
+<div class="container-fluid bg-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 float-left">
+
+      </div>
+      <div class="col-6 float-right">
+        <ul class="fix">
+          <li class="mr-3 ml-5"><p>Hotline: <span><b class="text-info">1800.8668</b></span></p></li>
+          <li *ngIf="!this.info.token" class="mr-3"><a routerLink="register"><i class="fa fa-lock"></i>Register</a></li>
+          <li *ngIf="!this.info.token" class="mr-3"><a routerLink="login"><i class="fa fa-user"></i>Login</a></li>
+          <li *ngIf="this.info.token" class="mr-3"><a (click)="logout()"><i class="fa fa-user"></i>Log Out</a></li>
+          <li *ngIf="this.info.token"><a routerLink="profile"><i class="fa fa-user"></i>Profile(<span class="text-info">{{info.name}}</span>)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row p-2">
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-3">
+          <div class="logo" align="center">
+            <img src="../../../../assets/images/logo.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-9">
+          <marquee>
+            <img src="../../../../assets/images/slogan-lg.png" alt="">
+          </marquee>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="col-6 float-left">
+
+      </div>
+      <div class="float-right">
+        <app-cart></app-cart>
+      </div>
+    </div>
+  </div>
+</div>

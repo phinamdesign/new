@@ -1,0 +1,13 @@
+<h2 class="text-center">Create a Payment</h2>
+<form [formGroup]="createForm" (ngSubmit)="addPayment()" class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      <b>Payment name</b>
+      <input type="text" class="form-control" formControlName="name" placeholder="Enter a payment method here">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Create payment</button>
+  </div>
+</form>

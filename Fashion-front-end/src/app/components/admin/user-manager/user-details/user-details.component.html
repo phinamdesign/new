@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-4 offset-4">
+      <h2> User Detail </h2>
+      <hr/>
+      <div *ngIf="user">
+        <label><b>Name: </b></label> {{user.name}}<br>
+        <label><b>Mail: </b></label> {{user.email}}<br>
+        <label><b>Address: </b></label> {{user.address}}<br>
+        <label><b>Phone: </b></label> {{user.phone}}
+      </div>
+      <button (click)="list()" class="btn btn-primary">Back To List</button>
+    </div>
+  </div>
+</div>

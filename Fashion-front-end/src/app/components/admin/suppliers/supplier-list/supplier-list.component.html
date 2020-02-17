@@ -1,0 +1,61 @@
+<!--<div *ngIf="info.token;  else loggedOut">-->
+<!--  <a [routerLink]="['/create/category']">create a new supplier</a>-->
+<!--  <div class="panel panel-primary">-->
+<!--    <div class="panel-heading">-->
+<!--      <h2>Supplier-list</h2>-->
+<!--    </div>-->
+<!--    <div class="panel-body">-->
+<!--      <table class="table table-striped" border="1px">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--          <th>STT</th>-->
+<!--          <th>Supplier name</th>-->
+<!--          <th>Edit supplier</th>-->
+<!--          <th>Delete supplier</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr *ngFor="let supplier of suppliers | async ; index as i">-->
+<!--          <td>{{i+1}}</td>-->
+<!--          <td>{{supplier.supplierName}}</td>-->
+<!--          <td><button [routerLink]="['/supplier/'+supplier.supplierId+'/edit']" class="btn btn-success">Edit</button></td>-->
+<!--          <td><button (click)="deleteSupplier(supplier.supplierId)" class="btn btn-danger">Delete</button>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<ng-template #loggedOut>-->
+<!--  <h1>Please login to continue!</h1>-->
+<!--  <a [routerLink]="['/login']">Login</a>-->
+<!--</ng-template>-->
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="text-center mb-4">Supplier list</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered text-center mb-4">
+        <thead>
+        <tr>
+          <th>STT</th>
+          <th>Supplier name</th>
+          <th>Edit supplier</th>
+          <th>Delete supplier</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let supplier of suppliers | async ; index as i">
+          <td>{{i+1}}</td>
+          <td>{{supplier.supplierName}}</td>
+          <td><button [routerLink]="['/supplier/'+supplier.supplierId+'/edit']" class="btn btn-info">Edit</button></td>
+          <td><button (click)="deleteSupplier(supplier.supplierId)" class="btn btn-danger">Delete</button>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div id="menu_area" class="menu-area bg-d mb-5">
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-light navbar-expand-lg mainmenu">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li><a routerLink="home" class="nav-link" routerLinkActive="active">Home<span class="sr-only">(current)</span></a></li>
+            <li><a routerLink="user" class="nav-link" routerLinkActive="active">User<span class="sr-only">(current)</span></a></li>
+            <li><a class="dropdown-item text-center" *ngIf="isAdminRole" [routerLink]="'order/admin/filter'">Order manager</a></li>
+            <!------------->
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a routerLink="product" class="nav-link" routerLinkActive="active">List</a></li>
+                <li><a routerLink="create-product"  class="nav-link" routerLinkActive="active">Create Product</a></li>
+                <li><a routerLink="action-product" class="nav-link" routerLinkActive="active">Action Product</a></li>
+              </ul>
+            </li>
+            <!------------->
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a routerLink="categories" class="nav-link" routerLinkActive="active">List Category</a></li>
+                <li><a routerLink="create/category" class="nav-link" routerLinkActive="active">Create Category</a></li>
+              </ul>
+            </li>
+            <!------------->
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Supplier</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a routerLink="suppliers" class="nav-link" routerLinkActive="active">List Supplier</a></li>
+                <li><a routerLink="create/supplier" class="nav-link" routerLinkActive="active">Create supplier</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Color</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a routerLink="colors" class="nav-link" routerLinkActive="active">List Color</a></li>
+                <li><a routerLink="create-colors" class="nav-link" routerLinkActive="active">Create Color</a></li>
+              </ul>
+            </li>
+            <!------------->
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a routerLink="sizes" class="nav-link" routerLinkActive="active">List Size</a></li>
+                <li><a routerLink="create-sizes" class="nav-link" routerLinkActive="active">Create Size</a></li>
+              </ul>
+            </li>
+            <!----------------->
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Payment</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a routerLink="payment/list" class="nav-link" routerLinkActive="active">List payment</a></li>
+                <li><a routerLink="payment/create" class="nav-link" routerLinkActive="active">Create payment</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Supplier filter</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li *ngFor="let supplier of suppliers"><a class="dropdown-item" [routerLink]="['/product-supplier', supplier.supplierId]">{{supplier.supplierName}}</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="ADMIN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category filter</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li  *ngFor="let category of categories"><a class="dropdown-item" [routerLink]="['/product-category', category.categoryId]">{{category.categoryName}}</a></li>
+              </ul>
+            </li>
+            <!-------------->
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-6 offset-3">
+      <h2 align="center">
+        Create Color
+      </h2>
+      <div>
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name"><b>Color name</b></label>
+            <input type="text" class="form-control" placeholder="color name" id="name" required [(ngModel)]="color.name" name="name">
+          </div>
+          <button type="submit" class="btn btn-info">Create new color</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

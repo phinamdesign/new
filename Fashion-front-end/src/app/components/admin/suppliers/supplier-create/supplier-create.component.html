@@ -1,0 +1,13 @@
+<h2 class="text-center">Create a supplier</h2>
+<form [formGroup]="createForm" (ngSubmit)="addSupplier()" class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      <b>Supplier name</b>
+      <input type="text" class="form-control" formControlName="supplierName" placeholder="Enter a supplier name here">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Create supplier</button>
+  </div>
+</form>

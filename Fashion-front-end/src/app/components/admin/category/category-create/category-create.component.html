@@ -1,0 +1,13 @@
+<h2 class="text-center">Create a category</h2>
+<form [formGroup]="createForm" (ngSubmit)="addCategory()" class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      <b>Category name</b>
+      <input type="text" class="form-control" formControlName="categoryName" placeholder="Enter a category name here">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Create category</button>
+  </div>
+</form>

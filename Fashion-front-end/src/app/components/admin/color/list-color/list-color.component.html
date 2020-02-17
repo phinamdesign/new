@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel panel-primary" align="center">
+    <div class="panel heading">
+      <h2>List Colors</h2>
+    </div>
+    <div class="panel-body mt-3">
+      <table class="table table-bordered text-center mb-4">
+        <thead class="thead-warning">
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let color of colors | async | paginate: {itemsPerPage: 5, currentPage: p}">
+          <td>{{color.name}}</td>
+          <td>
+            <button (click)="deleteColor(color.id)" class="btn btn-danger mr-3">Delete</button>
+            <button (click)="updateColor(color.id)" class="btn btn-warning mr-3">Update</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

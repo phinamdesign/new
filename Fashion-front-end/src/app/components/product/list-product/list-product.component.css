@@ -1,0 +1,39 @@
+.center{
+  margin: 40px auto;
+  width: 700px;
+}
+.center input{
+  width: 600px;
+}
+.size img{
+  cursor: pointer;
+  max-width: 100%;
+  height: auto;
+}
+.size{
+  width: 15em;
+  height: 10em;
+  overflow: hidden;
+}
+.height{
+  min-height: 750px;
+}
+.page{
+  margin: 0px auto;
+}
+.imageProduct{
+  overflow: hidden;
+
+}
+.imageProduct img{
+  transition: 0.5s;
+  height: 238px;
+}
+.imageProduct:hover img{
+  cursor: pointer;
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+.text-xanh{
+  color: #EE5A24;
+}

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel panel-primary" align="center">
+    <div class="panel heading">
+      <h2>List Payment</h2>
+    </div>
+    <div class="panel-body mt-3">
+      <table class="table table-bordered text-center">
+        <thead class="thead-warning">
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let payment of payments | async | paginate: {itemsPerPage: 20, currentPage: p}">
+          <td>{{payment.name}}</td>
+          <td>
+            <button (click)="deletePayment(payment.id)" class="btn btn-danger mr-3">Delete</button>
+            <button (click)="updatePayment(payment.id)" class="btn btn-warning mr-3">Update</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

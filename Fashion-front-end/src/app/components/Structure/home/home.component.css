@@ -1,0 +1,35 @@
+ul li{
+  list-style: none;
+  float: left;
+  margin-right: 40px;
+}
+.brand{
+  margin: 0px auto;
+}
+.fix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.fix {
+  clear: both;
+  display: block;
+}
+.sale img{
+  display: inline-block;
+  width: 500px;
+}
+.sp{
+  margin: 0px auto;
+}
+.text-xanh{
+  color: #dd4f43;
+}
+.ml{
+  margin-left: 8px;
+}
+

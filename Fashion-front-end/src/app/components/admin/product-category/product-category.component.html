@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-3 mb-md-4" *ngFor="let product of productListByCategory | paginate: {itemsPerPage: 5,currentPage: p}">
+      <div class="card" style="width: 15rem;">
+        <img class="card-img-top"  (click)="detailsProduct(product.id)" [src]="product.pictures[0].src" alt="Card image cap">
+        <div class="card-body">
+          <h5 align="center">{{product.name}}</h5>
+          <p>Price : <a href="#" class="card-link">{{product.price | currency : 'VND' : true : '1.0-0'}}</a></p>
+          <div>Category: {{product.category.categoryName}}</div>
+          <div>Brand: {{product.supplier.supplierName}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 offset-4">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

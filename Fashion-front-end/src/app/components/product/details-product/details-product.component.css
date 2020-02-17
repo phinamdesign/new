@@ -1,0 +1,20 @@
+.cart-btn{
+  margin: 0px auto;
+  display: inline;
+}
+.detailProduct{
+  overflow: hidden;
+  width: 250px;
+}
+.detailProduct img{
+  transition: 0.5s;
+}
+.detailProduct:hover img, .listImage:hover img{
+  cursor: pointer;
+  transition: 0.5s;
+  transform: scale(1.3);
+}
+.listImage{
+  width: 80px;
+  overflow: hidden;
+}

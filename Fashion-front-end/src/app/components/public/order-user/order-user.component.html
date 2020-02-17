@@ -1,0 +1,49 @@
+<div class="container mb-5">
+  <table class="table table-hover border text-center" border="1px">
+    <thead>
+    <tr class="table-bordered">
+      <th>Order code</th>
+      <th>Buyer ID</th>
+      <th>Buyer name</th>
+      <th>Total price</th>
+      <th>Date order</th>
+      <th>Buyer phone</th>
+      <th>Buyer address</th>
+      <th>Payment</th>
+      <th>Status</th>
+      <th>Change status</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let order of orderList" class="table-bordered">
+      <td *ngIf="order.status != 'normal'"><a [routerLink]="['/order-detail', order.id]">{{ order.id }}</a></td>
+      <td *ngIf="order.status != 'normal'">
+        <div *ngIf="order.user">
+          {{order.user.id}}
+        </div>
+        <div *ngIf="!order.user">
+          Unknown user
+        </div>
+      </td>
+      <td *ngIf="order.status != 'normal'">
+        <div *ngIf="order.user">
+          {{order.user.name}}
+        </div>
+        <div *ngIf="!order.user">
+          Unknown user
+        </div>
+      </td>
+      <td *ngIf="order.status != 'normal'">{{order.total | currency: 'VND'}}</td>
+      <td *ngIf="order.status != 'normal'">{{order.date | date: 'dd/MM/yyyy | hh:mm:ss'}}</td>
+      <td *ngIf="order.status != 'normal'">{{order.phone}}</td>
+      <td *ngIf="order.status != 'normal'">{{order.deliveryAddress}}</td>
+      <td *ngIf="order.status != 'normal'">{{order.payment.name}}</td>
+      <td *ngIf="order.status != 'normal'"><b>{{order.status}}</b></td>
+      <td *ngIf="order.status != 'normal'">
+        <div *ngIf="order.status=='order'">
+          <input class="btn btn-info btn-danger" value="Cancel" (click)="changeToCancel(order.id)">
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</div>

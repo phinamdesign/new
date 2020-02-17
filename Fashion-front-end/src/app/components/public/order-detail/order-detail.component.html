@@ -1,0 +1,34 @@
+<div class="container mb-5">
+  <h3 class="mb-3">#Order detail </h3>
+  <table class="table table-bordered text-center">
+    <thead>
+      <th>STT</th>
+      <th>Order code</th>
+      <th>Buyer</th>
+      <th>Product name</th>
+      <th>Size</th>
+      <th>Color</th>
+      <th>Quantity</th>
+      <th>Date order</th>
+      <th>Product price</th>
+      <th>Amount</th>
+    </thead>
+    <tbody *ngFor="let a of productDetails; index as i">
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{a.order.id}}</td>
+        <td><div *ngIf="a.order.user">{{a.order.user.name}}</div>
+        <div *ngIf="!a.order.user">unknown user</div>
+        </td>
+        <td>{{a.product.name}}</td>
+        <td>{{a.size.name}}</td>
+        <td>{{a.color.name}}</td>
+        <td>{{a.quantity}}</td>
+        <td>{{a.order.date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{a.product.price| currency: 'VND'}}</td>
+
+        <td><b class=" text-info">{{a.product.price * a.quantity| currency: 'VND'}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
